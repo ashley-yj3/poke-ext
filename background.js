@@ -4,7 +4,7 @@ let time_spent = {};
 
 chrome.tabs.onActivated.addListener((active_info)=>{
     chrome.tabs.get(active_info.tabId,(tab)=>{
-        if(tab){
+        if(tab && tab.url){
             const url = new URL(tab.url);
             active_tab = url.hostname;
             if(!time_spent[active_tab]){
