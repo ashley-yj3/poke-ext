@@ -50,7 +50,7 @@ poke_name{
 
 button{
     display: inline-block;
-    padding: 10px 20px;
+    padding: 8px 15px;
     font-size: 14px;
     font-family: 'Press Start 2P';
     background-color: #aea9a9;
@@ -67,7 +67,7 @@ button:hover{
 }
 
 #reset {
-    margin-top: 20px; 
+    margin-top: 15px; 
     width: 100%; 
     text-align: center;
 }
