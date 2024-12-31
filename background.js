@@ -4,6 +4,10 @@ let time_spent = {};
 
 chrome.tabs.onActivated.addListener((active_info)=>{
     chrome.tabs.get(active_info.tabId,(tab)=>{
+        if (chrome.runtime.lastError) {
+            console.error(chrome.runtime.lastError.message);
+            return;
+        }
         if(tab && tab.url){
             const url = new URL(tab.url);
             active_tab = url.hostname;
