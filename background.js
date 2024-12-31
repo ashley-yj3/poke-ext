@@ -2,8 +2,8 @@ const productiveSites = ["github.com","leetcode.com","learn.uwaterloo.ca","docs.
 let active_tab = null;
 let time_spent = {};
 
-chrome.tabs.onActivated.addListener((active_info)=>{
-    chrome.tabs.get(active_info.tabId,(tab)=>{
+chrome.tabs.onActivated.addListener((activeInfo)=>{
+    chrome.tabs.get(activeInfo.tabId,(tab)=>{
         if (chrome.runtime.lastError) {
             console.error(chrome.runtime.lastError.message);
             return;
