@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body{
+    font-family: 'Press Start 2P'
+    ;
+    margin: 0; 
+    padding: 10px;
+    background-color: #f9f9f9;
+    color: #444;
+    text-align: center;
+}
+
+h1{
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li{
+    margin: 15px 0;
+    text-align:center;
+    padding:10px;
+    background-color: #aea9a9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+poke_img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid #444
+
+}
+
+poke_name{
+    margin-top: 8px;
+    font-size:12px;
+    color: #444;
+}
+
+button{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: 'Press Start 2P';
+    background-color: #aea9a9;
+    color: #444;
+    border: #444;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+button:hover{
+    background-color: #7a7575;
+}
+
+#reset {
+    margin-top: 20px; 
+    width: 100%; 
+    text-align: center;
+}
