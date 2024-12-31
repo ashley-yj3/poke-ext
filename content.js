@@ -9,7 +9,8 @@ chrome.runtime.onMessage.addListener((message) => {
     {name: "Charizard", rarity: "rare"},
     {name: "Gardevoir", rarity: "epic"},
     {name: "Sylveon", rarity: "epic"},
-    {name: "Arceus", rarity: "mythic"},
+    {name: "Arceus", rarity: "mythic"}, 
+    {name: "Shroomish", rarity: "common"},
     {name: "Rayquaza", rarity: "mythic"}]; //think ab making this a diff file
 
 
