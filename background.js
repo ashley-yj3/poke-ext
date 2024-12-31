@@ -18,7 +18,7 @@ chrome.alarms.create("track_time", { periodInMinutes: 1 });
 chrome.alarms.onAlarm.addListener((alarm)=> {
     if(alarm.name == "track_time"&&productiveSites.includes(active_tab)){
         time_spent[active_tab]++;
-        if(time_spent[active_tab]==1||time_spent[active_tab]==120||time_spent[active_tab]==240){ //how to get timed intervals
+        if(time_spent[active_tab]==1||time_spent[active_tab]%120==0){ 
             chrome.runtime.sendMessage({action: "show_pokemon", time: time_spent[active_tab]});
         }
     }
