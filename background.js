@@ -21,8 +21,13 @@ chrome.tabs.onActivated.addListener((activeInfo)=>{
 chrome.alarms.create("track_time", { periodInMinutes: 1 });
 chrome.alarms.onAlarm.addListener((alarm)=> {
     if(alarm.name === "track_time"&&productiveSites.includes(active_tab)){
+        
+        console.log("Alarm triggered:", alarm.name);
+        console.log("Active tab:", active_tab);
+        
         time_spent[active_tab]++;
         if(time_spent[active_tab]==1||time_spent[active_tab]%120==0){ 
+            console.log("Sending show_pokemon message for:", active_tab);
             chrome.runtime.sendMessage({action: "show_pokemon", time: time_spent[active_tab]});
         }
     }
