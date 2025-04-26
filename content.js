@@ -1,5 +1,7 @@
+
 chrome.runtime.onMessage.addListener((message) => {
     if (message.action === "show_pokemon") {
+    console.log("Spawning Pokémon!");
       display_poke(message.time);
     }
   });
@@ -15,21 +17,19 @@ chrome.runtime.onMessage.addListener((message) => {
 
 
 function display_poke(t){
-    const popup = document.createElement("div");
-    popup.style.position = "fixed";
-    popup.style.bottom = "10px";
-    popup.style.right = "10px";
-    popup.style.padding = "20px";
-    popup.style.backgroundColor = "#f9f9f9"; //and no bg colour?
-    popup.style.border = "2px solid #000"; //what if i want no border
-    popup.style.zIndex = "10000";
-
     const poke_rar = get_rarity(t);
     const poke_name = get_poke(poke_rar);
+    const poke_img = get_pokeimg(poke_name);
 
-    popup.innerHTML = `<p>You encountered a wild ${poke_name}!</p>
-                     <button id="catch">Catch!</button>`;
-
+    const popup = document.createElement("div");
+    popup.classList.add("poke-popup");
+    
+    popup.innerHTML = `
+      <p class="poke-text">You encountered a wild ${poke_name}!</p>
+      <img src="${poke_img}" alt="${poke_name}" class="poke-image">
+      <button id="catch" class="poke-button">Catch!</button>
+    `;
+    
     document.body.appendChild(popup);
 
     document.getElementById("catch").onclick = () => {
@@ -59,4 +59,18 @@ function get_poke(rar) {
 
     const rand_ind = Math.floor(Math.random() * filtered.length);
     return filtered[rand_ind];
+}
+
+function get_pokeimg(poke_name){
+    const poke_imgs = {
+        Pikachu: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+        Charizard: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+        Garchomp: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/445.png",
+        Gardevoir: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png",
+        Sylveon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/700.png",
+        Arceus: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/493.png",
+        Rayquaza: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/384.png"
+
+    };
+    return poke_imgs[poke_name];
 }
