@@ -63,14 +63,13 @@ function get_poke(rar) {
 
 function get_pokeimg(poke_name){
     const poke_imgs = {
-        Pikachu: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
-        Charizard: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-        Garchomp: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/445.png",
-        Gardevoir: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png",
-        Sylveon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/700.png",
-        Arceus: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/493.png",
-        Rayquaza: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/384.png"
-
+        Pikachu: "./imgs/pikachu.png",
+        Charizard: "./imgs/charizard.png",
+        Garchomp: "./imgs/garchomp.png",
+        Gardevoir: "./imgs/gardevoir.png",
+        Sylveon: "./imgs/sylveon.png",
+        Arceus: "./imgs/arceus.png",
+        Rayquaza: "./imgs/rayquaza.png"
     };
     return poke_imgs[poke_name];
 }
