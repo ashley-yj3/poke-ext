@@ -56,9 +56,14 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   
       if (time_spent === 1 || time_spent % 120 === 0) { 
             console.log("sending message");
-            chrome.tabs.sendMessage(prod_tab_id, {
-              action: "show_pokemon",
-              time: time_spent,
+            chrome.scripting.executeScript({
+              target: { tabId: prod_tab_id },
+              files: ["content.js"]
+            }, () => {
+              chrome.tabs.sendMessage(prod_tab_id, {
+                action: "show_pokemon",
+                time: time_spent,
+              });
             });
       }
     }

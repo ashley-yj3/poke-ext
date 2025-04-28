@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Catch 'Em All",
     "version": "1.0.0",
-    "permissions": ["tabs","activeTab","storage","alarms"],
+    "permissions": ["tabs","activeTab","storage","alarms","scripting"],
     "background": {
         "service_worker": "background.js"
     },
