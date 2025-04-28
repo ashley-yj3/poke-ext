@@ -1,4 +1,8 @@
-console.log("✅ content.js loaded!");
+const link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = chrome.runtime.getURL('pokemon.css');
+document.head.appendChild(link);
 
 chrome.runtime.onMessage.addListener((message) => {
     if (message.action === "show_pokemon") {
@@ -26,7 +30,9 @@ function display_poke(t){
     popup.classList.add("poke-popup");
     
     popup.innerHTML = `
-      <p class="poke-text">You encountered a wild ${poke_name}!</p>
+        <p class="poke-text">
+            You encountered a wild ${poke_name}!
+        </p>
       <img src="${poke_img}" alt="${poke_name}" class="poke-image">
       <button id="catch" class="poke-button">Catch!</button>
     `;
@@ -34,11 +40,11 @@ function display_poke(t){
     document.body.appendChild(popup);
 
     document.getElementById("catch").onclick = () => {
-        chrome.storage.local.get(["pokemon"],(result) => {
-           const collection = result.pokemon || [];
-           collection.push(poke_name);
-           chrome.storage.local.set({pokemon: collection});
-        });
+        //chrome.storage.local.get(["pokemon"],(result) => {
+          // const collection = result.pokemon || [];
+          // collection.push(poke_name);
+          // chrome.storage.local.set({pokemon: collection});
+        //});
         popup.remove();
     };
 }
