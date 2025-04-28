@@ -1,4 +1,4 @@
-
+console.log("✅ content.js loaded!");
 chrome.runtime.onMessage.addListener((message) => {
     if (message.action === "show_pokemon") {
     console.log("Spawning Pokémon!");

@@ -1,14 +1,17 @@
-const productiveSites = ["github.com","leetcode.com","learn.uwaterloo.ca","docs.google.com","notion.com","calendar.google.com","trello.com"]
+const productiveSites = ["github.com","leetcode.com","learn.uwaterloo.ca","docs.google.com","notion.com","calendar.google.com","trello.com","chatgpt.com"]
 let active_tab = null;
-let time_spent = {};
+let time_spent = 0;
+let prod_tab_id = null;
 
 const resetTimer = () => {
     chrome.alarms.clearAll();
     time_spent = 0;
+    console.log("Stopping the alarm!");
   };
 
 
 const startAlarm = () => {
+  console.log("Starting the alarm!");
     chrome.alarms.create("track_time", { periodInMinutes: 1 }); // Alarm triggers every minute
 };
 
@@ -20,6 +23,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
           startAlarm(); 
         }
         active_tab = newUrl.hostname; 
+        prod_tab_id = tab.id;
       } else {
         active_tab = null;
         resetTimer(); 
@@ -36,6 +40,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             startAlarm(); 
           }
           active_tab = newUrl.hostname; 
+          prod_tab_id = tab.id;
         } else {
           active_tab = null;
           resetTimer(); 
@@ -45,19 +50,16 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   });
 
   chrome.alarms.onAlarm.addListener((alarm) => {
-    if (alarm.name === "track_time" && activeSite) {
+    if (alarm.name === "track_time" && active_tab) {
       time_spent += 1; 
       console.log(`Total productive time: ${time_spent} minutes`);
   
       if (time_spent === 1 || time_spent % 120 === 0) { 
-        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-          if (tabs[0]) {
-            chrome.tabs.sendMessage(tabs[0].id, {
+            console.log("sending message");
+            chrome.tabs.sendMessage(prod_tab_id, {
               action: "show_pokemon",
               time: time_spent,
             });
-          }
-        });
       }
     }
   });
