@@ -1,36 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 .poke-popup{
     position: fixed; 
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    border: 2px solid black;
-    padding: 20px;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background-color: rgb(222, 222, 222) !important;
+    border: 2px solid rgb(93, 93, 93) !important;
     z-index: 9999 !important; 
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    height: 230px !important;
+    width:500px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .poke-image {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
+    width: 200px !important;
+    height: 200px !important;
+    margin-bottom: -30px !important;
+    margin-top: -60px !important;
   }
 
 .poke-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #1e1d1d;
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+    color: #1e1d1d !important;
+    font-family: "Press Start 2P", system-ui !important;
+    border: 1.5px solid rgb(48, 48, 48) !important;
+    
   }
 
 .poke-button:hover {
-   background-color: #7a7575;
+   background-color: #7a7575 !important;
+   transition: 0.18s ease-in-out !important;
 }
 
 .poke-text {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #7a7575
+    font-size: 13px !important;
+    margin-bottom: 30px !important;
+    color: #2a2a2a !important;
+    font-family: "Press Start 2P", system-ui !important;
 }
