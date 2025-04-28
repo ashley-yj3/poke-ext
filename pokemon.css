@@ -17,11 +17,12 @@
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
+    font-family: "Press Start 2P", system-ui !important;
 }
 
 .poke-image {
-    width: 200px !important;
-    height: 200px !important;
+    width: 100px !important;
+    height: 100px !important;
     margin-bottom: -30px !important;
     margin-top: -60px !important;
   }

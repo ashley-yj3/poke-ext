@@ -1,9 +1,3 @@
-const style_link = document.createElement('link');
-style_link.rel = 'stylesheet';
-style_link.type = 'text/css';
-style_link.href = chrome.runtime.getURL('pokemon.css');
-document.head.appendChild(style_link);
-
 chrome.runtime.onMessage.addListener((message) => {
     if (message.action === "show_pokemon") {
     console.log("Spawning Pokémon!");
