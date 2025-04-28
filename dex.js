@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const dex = document.getElementById('pokemon-list');
+    const dex = document.querySelector('.dex');  
 
     chrome.storage.local.get(["pokemon"], function(result) {
         const pokemon = result.pokemon || [];
         pokemon.forEach(name => {
             const p = document.createElement('p');
-            p.textContent = name;
+            p.textContent = name.name;  
             dex.appendChild(p);
         });
     });

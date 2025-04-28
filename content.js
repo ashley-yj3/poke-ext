@@ -19,7 +19,7 @@ chrome.runtime.onMessage.addListener((message) => {
 
 function display_poke(t){
     const poke_rar = get_rarity(t);
-    const poke_name = get_poke(poke_rar);
+    const poke_name = get_poke(poke_rar).name;
     const poke_img = get_pokeimg(poke_name);
 
     const popup = document.createElement("div");
