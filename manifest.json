@@ -16,6 +16,20 @@
             "js":["content.js"]
         }
     ],
+    "web_accessible_resources": [
+  {
+    "resources": [
+      "imgs/pikachu.png",
+      "imgs/charizard.png",
+      "imgs/garchomp.png",
+      "imgs/gardevoir.png",
+      "imgs/sylveon.png",
+      "imgs/arceus.png",
+      "imgs/rayquaza.png",
+      "imgs/shroomish.png"
+    ],
+    "matches": ["<all_urls>"]
+  }],
     "icons":{
         "16": "poke_icon.png",
         "48": "poke_icon.png",

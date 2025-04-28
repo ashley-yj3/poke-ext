@@ -64,13 +64,14 @@ function get_poke(rar) {
 
 function get_pokeimg(poke_name){
     const poke_imgs = {
-        Pikachu: "./imgs/pikachu.png",
-        Charizard: "./imgs/charizard.png",
-        Garchomp: "./imgs/garchomp.png",
-        Gardevoir: "./imgs/gardevoir.png",
-        Sylveon: "./imgs/sylveon.png",
-        Arceus: "./imgs/arceus.png",
-        Rayquaza: "./imgs/rayquaza.png"
+        Pikachu: chrome.runtime.getURL('imgs/pikachu.png'),
+        Charizard: chrome.runtime.getURL('imgs/charizard.png'),
+        Garchomp: chrome.runtime.getURL('imgs/garchomp.png'),
+        Gardevoir: chrome.runtime.getURL('imgs/gardevoir.png'),
+        Sylveon: chrome.runtime.getURL('imgs/sylveon.png'),
+        Arceus: chrome.runtime.getURL('imgs/arceus.png'),
+        Rayquaza: chrome.runtime.getURL('imgs/rayquaza.png'),
+        Shroomish: chrome.runtime.getURL('imgs/shroomish.png')
     };
     return poke_imgs[poke_name];
 }
