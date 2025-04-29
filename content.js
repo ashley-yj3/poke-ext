@@ -1,7 +1,16 @@
+      const styleLink = document.createElement('link');
+      styleLink.rel = 'stylesheet';
+      styleLink.type = 'text/css';
+      styleLink.href = chrome.runtime.getURL('pokemon.css');
+     
+      document.head.appendChild(styleLink);
+
+
+
 chrome.runtime.onMessage.addListener((message) => {
     if (message.action === "show_pokemon") {
     console.log("Spawning Pokémon!");
-      display_poke(message.time);
+    display_poke(message.time); 
     }
   });
 
