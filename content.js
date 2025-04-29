@@ -1,18 +1,23 @@
-const poke = [{name: "Pikachu", rarity: "rare"},
-    {name: "Garchomp", rarity: "epic"},
-    {name: "Charizard", rarity: "rare"},
-    {name: "Gardevoir", rarity: "epic"},
-    {name: "Sylveon", rarity: "epic"},
-    {name: "Arceus", rarity: "mythic"}, 
-    {name: "Shroomish", rarity: "common"},
-    {name: "Rayquaza", rarity: "mythic"}]; //think ab making this a diff file
 
-      const styleLink = document.createElement('link');
-      styleLink.rel = 'stylesheet';
-      styleLink.type = 'text/css';
-      styleLink.href = chrome.runtime.getURL('pokemon.css');
-     
-      document.head.appendChild(styleLink);
+    const poke = [
+        {name: "Pikachu", rarity: "rare"},
+        {name: "Garchomp", rarity: "epic"},
+        {name: "Charizard", rarity: "rare"},
+        {name: "Gardevoir", rarity: "epic"},
+        {name: "Sylveon", rarity: "epic"},
+        {name: "Arceus", rarity: "mythic"}, 
+        {name: "Shroomish", rarity: "common"},
+        {name: "Rayquaza", rarity: "mythic"}
+    ];
+
+    existing_link = document.querySelector('link[href="' + chrome.runtime.getURL('pokemon.css') + '"]');
+    if (!existing_link) {
+        const style_link = document.createElement('link');
+        style_link.rel = 'stylesheet';
+        style_link.type = 'text/css';
+        style_link.href = chrome.runtime.getURL('pokemon.css');
+        document.head.appendChild(style_link);
+    }
 
 chrome.runtime.onMessage.addListener((message) => {
     if (message.action === "show_pokemon") {
