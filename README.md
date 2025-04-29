@@ -48,7 +48,7 @@ If there are any pokemon you really wish to catch that aren't included you can a
 
 5. Locate the `poke_imgs` array in the `get_pokeimg` function at the bottom of the file
 
-6. Add in your pokemon following this format:
+6. Add in your pokemon image following this format:
 ```bash
     Pokemon_Name: chrome.runtime.getURL('imgs/file_name.png'),
 ```
