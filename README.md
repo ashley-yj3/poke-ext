@@ -33,7 +33,7 @@ Feel free to add your own productive sites or adjust any of the pre-included one
 2. Add the general url for any sites you wish to include in the `ProductiveSites` array
 
 ### Pokemon User Personalizations
-If there are any pokemon you really wish to catch you can also include them!
+If there are any pokemon you really wish to catch that aren't included you can add them!
 
 1. Add an image for your desired pokemon in the imgs folder
 
