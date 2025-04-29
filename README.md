@@ -1,7 +1,7 @@
 # Productive Pokemon Chrome Extension
 
 ## Overview
-This extension tracks how much time you're on a "productive site" and spawns pokemon to your screen depending on how long you remain on those sites. The longer you spend staying focused the rarer the pokemon that spawn! You can store a collection of all the pokemon you've caught and come back to them at any time by clicking the extension icon :)
+This extension tracks how much time you're on a "productive site" and spawns pokemon to your screen depending on how long you remain on those sites. The longer you spend staying focused the rarer the pokemon that spawn (switching between productive sites does not reset the timer)! You can store a collection of all the pokemon you've caught and come back to them at any time by clicking the extension icon :)
 
 ## Software Requirements
 - JavaScript
@@ -54,3 +54,6 @@ If there are any pokemon you really wish to catch that aren't included you can a
 ```
 
 7. Ensure the Pokemon_Name used in step 4. and step 6. is **exactly** the same
+
+## Thanks!
+I hope this extension makes it easier, or at least more fun, for you to study longer!
