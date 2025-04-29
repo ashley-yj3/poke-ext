@@ -26,6 +26,8 @@ Clone the repository:
 
 4. Select the entire `poke-ext` repository
 
+5. Select ***service worker*** and keep it running in the background
+
 ### Productive Site User Personalizations
 Feel free to add your own productive sites or adjust any of the pre-included ones! 
 
