@@ -1,20 +1,4 @@
-      const styleLink = document.createElement('link');
-      styleLink.rel = 'stylesheet';
-      styleLink.type = 'text/css';
-      styleLink.href = chrome.runtime.getURL('pokemon.css');
-     
-      document.head.appendChild(styleLink);
-
-
-
-chrome.runtime.onMessage.addListener((message) => {
-    if (message.action === "show_pokemon") {
-    console.log("Spawning Pokémon!");
-    display_poke(message.time); 
-    }
-  });
-
-  const poke = [{name: "Pikachu", rarity: "rare"},
+const poke = [{name: "Pikachu", rarity: "rare"},
     {name: "Garchomp", rarity: "epic"},
     {name: "Charizard", rarity: "rare"},
     {name: "Gardevoir", rarity: "epic"},
@@ -23,6 +7,21 @@ chrome.runtime.onMessage.addListener((message) => {
     {name: "Shroomish", rarity: "common"},
     {name: "Rayquaza", rarity: "mythic"}]; //think ab making this a diff file
 
+      const styleLink = document.createElement('link');
+      styleLink.rel = 'stylesheet';
+      styleLink.type = 'text/css';
+      styleLink.href = chrome.runtime.getURL('pokemon.css');
+     
+      document.head.appendChild(styleLink);
+
+chrome.runtime.onMessage.addListener((message) => {
+    if (message.action === "show_pokemon") {
+    console.log("Spawning Pokémon!");
+    display_poke(message.time); 
+    }
+  });
+
+ 
 
 function display_poke(t){
     const poke_rar = get_rarity(t);
