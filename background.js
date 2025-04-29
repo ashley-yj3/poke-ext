@@ -1,4 +1,4 @@
-const productiveSites = ["github.com","leetcode.com","learn.uwaterloo.ca","docs.google.com","notion.com","calendar.google.com","trello.com","chatgpt.com"]
+const productiveSites = ["github.com","leetcode.com","docs.google.com","notion.com","calendar.google.com","trello.com","chatgpt.com"]
 let active_tab = null;
 let time_spent = 0;
 let prod_tab_id = null;
@@ -12,10 +12,10 @@ const resetTimer = () => {
 
 const startAlarm = () => {
   console.log("Starting the alarm!");
-    chrome.alarms.create("track_time", { periodInMinutes: 1 }); // Alarm triggers every minute
+    chrome.alarms.create("track_time", { periodInMinutes: 1 }); 
 };
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => { //when users access a new page within site
     if (changeInfo.url) {
       let newUrl = new URL(changeInfo.url);
       if (productiveSites.includes(newUrl.hostname)) {
@@ -31,7 +31,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     }
   });
 
-  chrome.tabs.onActivated.addListener((activeInfo) => {
+  chrome.tabs.onActivated.addListener((activeInfo) => { //for when user switches tabs
     chrome.tabs.get(activeInfo.tabId, (tab) => {
       if (tab.url) {
         let newUrl = new URL(tab.url);

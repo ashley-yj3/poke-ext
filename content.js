@@ -32,21 +32,21 @@ function display_poke(t){
     const popup = document.createElement("div");
     popup.classList.add("poke-popup");
     
-    popup.innerHTML = `
-        
-      <img src="${poke_img}" alt="${poke_name}" class="poke-image">
+    popup.innerHTML = 
+      `<img src="${poke_img}" alt="${poke_name}" class="poke-image">
       <p class="poke-text"> You encountered a wild ${poke_name}! </p>
-      <button id="catch" class="poke-button">Catch!</button>
-    `;
+      <button id="catch" class="poke-button">Catch!</button>`;
     
     document.body.appendChild(popup);
 
     document.getElementById("catch").onclick = () => {
-        //chrome.storage.local.get(["pokemon"],(result) => {
-          // const collection = result.pokemon || [];
-          // collection.push(poke_name);
-          // chrome.storage.local.set({pokemon: collection});
-        //});
+        chrome.storage.local.get(["pokemon"], (result) => {
+            const collection = result.pokemon || [];
+            collection.push({ name: poke_name, img: poke_img }); 
+            chrome.storage.local.set({ pokemon: collection }, () => {
+                console.log(`Saved ${poke_name} to your Pokédex!`);
+            });
+        });
         popup.remove();
     };
 }

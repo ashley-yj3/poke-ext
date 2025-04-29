@@ -1,17 +1,23 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const dex = document.querySelector('.dex');  
+document.addEventListener('DOMContentLoaded', () => {
+    const pokemonList = document.getElementById('pokemon-list');
 
-    chrome.storage.local.get(["pokemon"], function(result) {
-        const pokemon = result.pokemon || [];
-        pokemon.forEach(name => {
-            const p = document.createElement('p');
-            p.textContent = name.name;  
-            dex.appendChild(p);
-        });
+    chrome.storage.local.get(["pokemon"], (result) => {
+        const collection = result.pokemon || [];
+
+            collection.forEach(poke => {
+                const entry = document.createElement('div');
+                entry.className = 'poke-entry'; 
+                entry.innerHTML = 
+                `<img src="${poke.img}" alt="${poke.name}" class="poke-img">
+                <span class="poke-name">${poke.name}</span>`;
+
+                pokemonList.appendChild(entry);
+            });
     });
 
-    document.getElementById('reset').addEventListener('click', function() {
+    document.getElementById('reset').addEventListener('click', () => {
         chrome.storage.local.set({ pokemon: [] }, () => {
+            alert('Collection reset!');
             location.reload();
         });
     });
